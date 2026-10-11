@@ -1,0 +1,10 @@
+{"source": "root-string.plist", "cases": [
+{"id":"root: set new key","op":"setValue","args":[["set_key"],"set"],"expect":{"ok":false,"status":"InvalidArgument"}},
+{"id":"root: insert map","op":"insertValue","args":[[],"added_map",{"x":1,"y":"two"}],"expect":{"ok":false,"status":"InvalidArgument"}},
+{"id":"root: replace with int","op":"replaceValue","args":[[],42],"expect":{"ok":true,"splice":[164,192,"integer>42</integer"]}},
+{"id":"root: replace with negative","op":"replaceValue","args":[[],-7],"expect":{"ok":true,"splice":[164,192,"integer>-7</integer"]}},
+{"id":"root: replace with float","op":"replaceValue","args":[[],2.5],"expect":{"ok":true,"splice":[164,192,"real>2.5</real"]}},
+{"id":"root: replace with bool","op":"replaceValue","args":[[],true],"expect":{"ok":true,"splice":[164,192,"true/"]}},
+{"id":"root: replace with word","op":"replaceValue","args":[[],"word"],"expect":{"ok":true,"splice":[171,184,"word"]}},
+{"id":"root: replace with map","op":"replaceValue","args":[[],{"x":1,"y":"two"}],"expect":{"ok":true,"splice":[164,192,"dict>\n  <key>x</key>\n  <integer>1</integer>\n  <key>y</key>\n  <string>two</string>\n</dict"]}}
+]}

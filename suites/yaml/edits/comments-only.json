@@ -1,0 +1,10 @@
+{"source": "comments-only.yaml", "cases": [
+{"id":"root: set new key","op":"setValue","args":[["set_key"],"set"],"expect":{"ok":true,"splice":[0,17,"set_key: set"]}},
+{"id":"root: insert map","op":"insertValue","args":[[],"added_map",{"x":1,"y":"two"}],"expect":{"ok":true,"splice":[0,17,"added_map:\n  x: 1\n  y: two"]}},
+{"id":"root: replace with int","op":"replaceValue","args":[[],42],"expect":{"ok":true,"splice":[18,18,"42"]}},
+{"id":"root: replace with negative","op":"replaceValue","args":[[],-7],"expect":{"ok":true,"splice":[18,18,"-7"]}},
+{"id":"root: replace with float","op":"replaceValue","args":[[],2.5],"expect":{"ok":true,"splice":[18,18,"2.5"]}},
+{"id":"root: replace with bool","op":"replaceValue","args":[[],true],"expect":{"ok":true,"splice":[18,18,"true"]}},
+{"id":"root: replace with word","op":"replaceValue","args":[[],"word"],"expect":{"ok":true,"splice":[18,18,"word"]}},
+{"id":"root: replace with map","op":"replaceValue","args":[[],{"x":1,"y":"two"}],"expect":{"ok":true,"splice":[18,18,"x: 1\ny: two"]}}
+]}

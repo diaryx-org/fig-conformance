@@ -1,0 +1,10 @@
+{"source": "empty-array.json5", "cases": [
+{"id":"root: append int","op":"appendValue","args":[[],42],"expect":{"ok":true,"splice":[1,1,"42"]}},
+{"id":"root: prepend int","op":"prependValue","args":[[],42],"expect":{"ok":true,"splice":[1,1,"42"]}},
+{"id":"root: append spaced","op":"appendValue","args":[[],"two words"],"expect":{"ok":true,"splice":[1,1,"\"two words\""]}},
+{"id":"root: prepend spaced","op":"prependValue","args":[[],"two words"],"expect":{"ok":true,"splice":[1,1,"\"two words\""]}},
+{"id":"root: append map","op":"appendValue","args":[[],{"x":1,"y":"two"}],"expect":{"ok":false,"status":"InvalidArgument"}},
+{"id":"root: prepend map","op":"prependValue","args":[[],{"x":1,"y":"two"}],"expect":{"ok":false,"status":"InvalidArgument"}},
+{"id":"root: append list","op":"appendValue","args":[[],["a","b"]],"expect":{"ok":false,"status":"InvalidArgument"}},
+{"id":"root: prepend list","op":"prependValue","args":[[],["a","b"]],"expect":{"ok":false,"status":"InvalidArgument"}}
+]}

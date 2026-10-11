@@ -1,0 +1,12 @@
+{
+  "name": "fig-conformance",
+  "private": true,
+  "description": "Conformance suites for the languages fig reads and edits, scored through the language contract",
+  "license": "MIT OR Apache-2.0",
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "edits": "node --conditions=fig-source runner/edits.mjs",
+    "record:edits": "node --conditions=fig-source --import ./lib/reference-wasm.mjs scripts/record-edits.mjs"
+  }
+}
