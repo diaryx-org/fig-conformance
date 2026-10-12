@@ -25,7 +25,9 @@ const scores = {};
 const failures = {};
 for (const lang of languages) {
   if (only.length && !only.includes(lang.suite)) continue;
-  if (!registered.has(lang.module)) {
+  // With a dialect prefix the languages are the fig module's own copies
+  // (see lib/fig.mjs), so nothing is registered.
+  if (!process.env.FIG_DIALECT_PREFIX && !registered.has(lang.module)) {
     fig.registerLanguage(await languageModule(lang.module, opts.languages));
     registered.add(lang.module);
   }

@@ -121,6 +121,22 @@ FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm npm run record:edits [suite…]
 Record again when a compiled editor changes, and read the diff: an
 expectation that moves is a change every implementation must follow.
 
+## Scoring the contract path
+
+A fig wasm built with `-Dcontract-copies=true` registers each compiled
+language a second time through its contract vtable, as `c-<name>`, the
+first time a `c-` name is looked up. `FIG_DIALECT_PREFIX=c-` makes the
+runners score those copies instead of the compiled formats, with nothing
+registered from JavaScript:
+
+```sh
+FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm FIG_DIALECT_PREFIX=c- npm run parse:compiled -- --check scores/compiled.json
+FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm FIG_DIALECT_PREFIX=c- node --conditions=fig-source --import ./lib/reference-wasm.mjs runner/edits.mjs
+```
+
+It is how a Zig language is shown to lose nothing by reaching fig through
+the contract alone.
+
 ## Licence
 
 MIT or Apache-2.0, at your option. The edit sources, and the plist and
