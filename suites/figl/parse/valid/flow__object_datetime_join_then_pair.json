@@ -1,0 +1,12 @@
+{
+  "a": {
+    "at": {
+      "type": "datetime-local",
+      "value": "2026-07-01T09:00:00"
+    },
+    "b": {
+      "type": "integer",
+      "value": "1"
+    }
+  }
+}

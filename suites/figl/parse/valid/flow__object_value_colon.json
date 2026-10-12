@@ -1,0 +1,8 @@
+{
+  "a": {
+    "img": {
+      "type": "string",
+      "value": "nginx:latest"
+    }
+  }
+}

@@ -6,6 +6,8 @@
   "type": "module",
   "engines": { "node": ">=24" },
   "scripts": {
+    "parse": "node --conditions=fig-source runner/parse.mjs",
+    "parse:compiled": "node --conditions=fig-source --import ./lib/reference-wasm.mjs runner/parse.mjs",
     "edits": "node --conditions=fig-source runner/edits.mjs",
     "record:edits": "node --conditions=fig-source --import ./lib/reference-wasm.mjs scripts/record-edits.mjs"
   }

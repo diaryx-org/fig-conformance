@@ -7,8 +7,60 @@ implementation, so the compiled Zig formats, the JS languages in
 [fig's proposal](https://github.com/diaryx-org/fig/blob/main/docs/proposals/conformance-suite.md)
 says why.
 
-Only the edit suites are here so far. The parse suites (yaml-test-suite,
-toml-test and the rest) are still in fig's `testdata/`.
+There are two tiers: parse suites, which ask whether a language reads a
+document as its spec says, and edit suites, which ask what an edit makes of
+it.
+
+## Parse suites
+
+`suites/<suite>/parse/` holds `suite.json`, the corpora it names, and the
+upstream's licence:
+
+| Suite | Corpus | From |
+|---|---|---|
+| json | accept, reject, edgecase | JSONTestSuite |
+| json5 | cases (outcome by extension) | json5-tests |
+| yaml | accept (with upstream's expected JSON), reject, stream, reject-stream | yaml-test-suite, `data` branch |
+| yaml | 1.1 (tagged JSON) | fig's own, hand-written |
+| toml | 1.0.0, 1.1.0 (valid with tagged JSON, invalid) | toml-test |
+| figl | valid (tagged JSON), invalid | written from fig's spec |
+| plist | valid (with `plutil`'s JSON), invalid | fig's own |
+| nestedtext | valid (with `load_out`), invalid | nestedtext_tests |
+
+A manifest names the dialect and lists checks, each a kind over a corpus:
+
+```json
+{ "name": "expect", "kind": "converts", "corpus": "accept", "ext": "yaml", "to": "json", "expect": "json" }
+```
+
+The kinds are `parses`, `refuses`, `reprints`, `converts`, `agrees`,
+`stream` and `refuses-stream`, and the expectations `tagged` (toml-test's
+`{"type", "value"}`), `plain` and `json`; `lib/parse.mjs` says what each
+asks. A check may name another dialect (`toml-1.0`, `yaml-1.1`); an
+implementation without it, like one without a stream splitter, reports the
+check as not run instead of scoring it. Cases whose bytes are not UTF-8
+are marked in the manifest as outside the contract, since the wire carries
+text, and are tallied apart.
+
+Each upstream has a script in `scripts/` that fetches it at a pinned
+commit and writes the corpus, without parsing anything with fig:
+`vendor-json.mjs`, `vendor-json5.mjs`, `vendor-yaml.mjs`, `vendor-toml.mjs`,
+`vendor-nestedtext.mjs`, and `plist-oracles.mjs`, which asks `plutil` for
+the plist oracles. Pass a checkout to use it instead of cloning.
+
+```sh
+npm run parse                       # the JS languages, registered into a language-free fig
+npm run parse -- yaml toml          # some suites
+npm run parse -- --languages dir    # your own language modules, <dir>/<name>.js
+npm run parse -- --failures f.json  # every failing case, and why
+npm run parse -- --json             # the scores, as scores/*.json holds them
+npm run parse -- --check scores/js.json
+FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm npm run parse:compiled -- --check scores/compiled.json
+```
+
+`scores/compiled.json` and `scores/js.json` are each implementation's
+scores today. `--check` fails if any is now lower; raising one is an edit
+to the file in the change that earns it.
 
 ## Edit suites
 
@@ -71,5 +123,7 @@ expectation that moves is a change every implementation must follow.
 
 ## Licence
 
-MIT or Apache-2.0, at your option. The sources came from fig's own test
-fixtures.
+MIT or Apache-2.0, at your option. The edit sources, and the plist and
+YAML 1.1 parse corpora, came from fig's own test fixtures. Each corpus
+vendored from an upstream is under that upstream's licence, which sits
+beside it.

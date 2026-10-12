@@ -1,0 +1,12 @@
+{
+  "services": {
+    "web": {
+      "frontend": {
+        "replicas": {
+          "type": "integer",
+          "value": "3"
+        }
+      }
+    }
+  }
+}

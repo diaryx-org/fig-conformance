@@ -1,0 +1,12 @@
+{
+  "ports": [
+    {
+      "type": "integer",
+      "value": "25565"
+    },
+    {
+      "type": "integer",
+      "value": "25566"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "a": {
+    "note": {
+      "type": "string",
+      "value": "bare words run to the comma"
+    }
+  }
+}

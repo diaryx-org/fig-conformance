@@ -1,0 +1,66 @@
+{
+  "dialect": "yaml",
+  "spec": "1.2.2",
+  "checks": [
+    {
+      "name": "accept",
+      "kind": "parses",
+      "corpus": "accept",
+      "ext": "yaml"
+    },
+    {
+      "name": "expect",
+      "kind": "converts",
+      "corpus": "accept",
+      "ext": "yaml",
+      "to": "json",
+      "expect": "json"
+    },
+    {
+      "name": "reprint",
+      "kind": "reprints",
+      "corpus": "accept",
+      "ext": "yaml"
+    },
+    {
+      "name": "json",
+      "kind": "converts",
+      "corpus": "accept",
+      "ext": "yaml",
+      "to": "json"
+    },
+    {
+      "name": "reject",
+      "kind": "refuses",
+      "corpus": "reject",
+      "ext": "yaml"
+    },
+    {
+      "name": "stream",
+      "kind": "stream",
+      "corpus": "stream",
+      "ext": "yaml"
+    },
+    {
+      "name": "reject-stream",
+      "kind": "refuses-stream",
+      "corpus": "reject-stream",
+      "ext": "yaml"
+    },
+    {
+      "name": "1.1",
+      "kind": "parses",
+      "dialect": "yaml-1.1",
+      "corpus": "1.1",
+      "ext": "yaml",
+      "expect": "tagged",
+      "numbers": "yaml-1.1"
+    }
+  ],
+  "source": {
+    "upstream": "https://github.com/yaml/yaml-test-suite",
+    "branch": "data",
+    "commit": "6ad3d2c62885d82fc349026c136ef560838fdf3d",
+    "1.1": "fig's own hand-written YAML 1.1 resolution cases, copied from fig's testdata/yaml-1.1 at 724988f"
+  }
+}

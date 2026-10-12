@@ -1,0 +1,12 @@
+{
+  "a": [
+    {
+      "type": "string",
+      "value": "a, b"
+    },
+    {
+      "type": "string",
+      "value": "c"
+    }
+  ]
+}

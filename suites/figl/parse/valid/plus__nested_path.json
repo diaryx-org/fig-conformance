@@ -1,0 +1,26 @@
+{
+  "s": {
+    "c": [
+      {
+        "name": {
+          "type": "string",
+          "value": "app"
+        },
+        "p": [
+          {
+            "port": {
+              "type": "integer",
+              "value": "80"
+            }
+          },
+          {
+            "port": {
+              "type": "integer",
+              "value": "443"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

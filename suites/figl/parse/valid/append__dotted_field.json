@@ -1,0 +1,20 @@
+{
+  "jobs": {
+    "test": {
+      "steps": [
+        {
+          "uses": {
+            "type": "string",
+            "value": "actions/setup-node@v4"
+          },
+          "with": {
+            "node-version": {
+              "type": "integer",
+              "value": "20"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

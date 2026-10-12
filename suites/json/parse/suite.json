@@ -1,0 +1,45 @@
+{
+  "dialect": "json",
+  "spec": "RFC 8259",
+  "checks": [
+    {
+      "name": "accept",
+      "kind": "parses",
+      "corpus": "accept",
+      "ext": "json"
+    },
+    {
+      "name": "reject",
+      "kind": "refuses",
+      "corpus": "reject",
+      "ext": "json"
+    },
+    {
+      "name": "edgecase",
+      "kind": "parses",
+      "corpus": "edgecase",
+      "ext": "json",
+      "refused": [
+        "i_string_UTF-16LE_with_BOM.json",
+        "i_string_utf16BE_no_BOM.json",
+        "i_string_utf16LE_no_BOM.json"
+      ],
+      "outside": {
+        "i_string_UTF-8_invalid_sequence.json": "not UTF-8: the wire carries text, so the host refuses it",
+        "i_string_UTF8_surrogate_U+D800.json": "not UTF-8: the wire carries text, so the host refuses it",
+        "i_string_invalid_utf-8.json": "not UTF-8: the wire carries text, so the host refuses it",
+        "i_string_iso_latin_1.json": "not UTF-8: the wire carries text, so the host refuses it",
+        "i_string_lone_utf8_continuation_byte.json": "not UTF-8: the wire carries text, so the host refuses it",
+        "i_string_not_in_unicode_range.json": "not UTF-8: the wire carries text, so the host refuses it",
+        "i_string_overlong_sequence_2_bytes.json": "not UTF-8: the wire carries text, so the host refuses it",
+        "i_string_overlong_sequence_6_bytes.json": "not UTF-8: the wire carries text, so the host refuses it",
+        "i_string_overlong_sequence_6_bytes_null.json": "not UTF-8: the wire carries text, so the host refuses it",
+        "i_string_truncated-utf-8.json": "not UTF-8: the wire carries text, so the host refuses it"
+      }
+    }
+  ],
+  "source": {
+    "upstream": "https://github.com/nst/JSONTestSuite",
+    "commit": "1ef36fa01286573e846ac449e8683f8833c5b26a"
+  }
+}

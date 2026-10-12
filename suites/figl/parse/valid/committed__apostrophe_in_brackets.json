@@ -1,0 +1,6 @@
+{
+  "a": {
+    "type": "string",
+    "value": "[its parent's comment](x.md)"
+  }
+}

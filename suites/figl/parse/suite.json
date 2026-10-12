@@ -1,0 +1,23 @@
+{
+  "dialect": "fig",
+  "spec": "2.0",
+  "source": {
+    "origin": "written from fig's specification; see README.md"
+  },
+  "checks": [
+    {
+      "name": "valid",
+      "kind": "parses",
+      "corpus": "valid",
+      "ext": "figl",
+      "expect": "tagged",
+      "numbers": "fig"
+    },
+    {
+      "name": "invalid",
+      "kind": "refuses",
+      "corpus": "invalid",
+      "ext": "figl"
+    }
+  ]
+}

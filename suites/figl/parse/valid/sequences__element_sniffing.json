@@ -1,0 +1,22 @@
+[
+  {
+    "type": "integer",
+    "value": "42"
+  },
+  {
+    "type": "bool",
+    "value": "true"
+  },
+  {
+    "type": "null",
+    "value": ""
+  },
+  {
+    "type": "string",
+    "value": "hello world"
+  },
+  {
+    "type": "float",
+    "value": "1.5"
+  }
+]

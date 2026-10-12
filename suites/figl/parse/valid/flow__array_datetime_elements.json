@@ -1,0 +1,16 @@
+{
+  "a": [
+    {
+      "type": "date-local",
+      "value": "2026-07-01"
+    },
+    {
+      "type": "datetime-local",
+      "value": "2026-07-01T09:00:00"
+    },
+    {
+      "type": "time-local",
+      "value": "10:30:00"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "a": {
+    "type": "integer",
+    "value": "1"
+  },
+  "b": {
+    "type": "string",
+    "value": "two"
+  }
+}

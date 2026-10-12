@@ -1,0 +1,27 @@
+# Contact information for our officers
+
+Katheryn McDaniel:
+    position: president
+    address:
+        > 138 Almond Street
+        > Topeka, Kansas 20697
+    phone:
+        cell: 1-210-555-5297
+        work: 1-210-555-3423
+        home: 1-210-555-8470
+            # Katheryn prefers that we always call her on her cell phone.
+    email: KateMcD@aol.com
+    kids:
+        - Joanie
+        - Terrance
+
+Margaret Hodge:
+    position: vice president
+    address:
+        > 2586 Marigold Lane
+        > Topeka, Kansas 20697
+    phone:
+        {cell: 1-470-555-0398, home: 1-470-555-7570}
+    email: margaret.hodge@ku.edu
+    kids:
+        [Arnie, Zach, Maggie]

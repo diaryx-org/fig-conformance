@@ -1,0 +1,4 @@
+inline dict:
+    {a:A, b: B,c :C , d : D }
+inline list:
+    [a, b,c , d ]

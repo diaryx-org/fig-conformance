@@ -1,0 +1,7 @@
+{
+ "key 1\n    the first key": "value 1",
+ "key 2: the second key": [
+  "value 2a",
+  "value 2b"
+ ]
+}

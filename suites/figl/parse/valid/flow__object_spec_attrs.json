@@ -1,0 +1,14 @@
+{
+  "a": {
+    "lang": {
+      "type": "string",
+      "value": "en"
+    },
+    "data": {
+      "count": {
+        "type": "integer",
+        "value": "3"
+      }
+    }
+  }
+}

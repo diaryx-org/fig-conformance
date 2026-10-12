@@ -1,0 +1,12 @@
+{
+  "a": [
+    {
+      "type": "string",
+      "value": "rust"
+    },
+    {
+      "type": "string",
+      "value": "zig"
+    }
+  ]
+}

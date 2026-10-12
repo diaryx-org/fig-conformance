@@ -1,0 +1,8 @@
+{
+  "server": {
+    "port": {
+      "type": "integer",
+      "value": "8080"
+    }
+  }
+}

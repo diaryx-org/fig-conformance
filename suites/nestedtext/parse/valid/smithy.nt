@@ -1,0 +1,5 @@
+# this line is ignored
+
+# this line is also ignored, as is the blank line above.
+
+# this is a comment that contains unicode: “αβγ ΩƱ 𝄞🁒 🌀”

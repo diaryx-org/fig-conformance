@@ -1,0 +1,6 @@
+{
+  "a": {
+    "type": "string",
+    "value": "line1\nline2"
+  }
+}

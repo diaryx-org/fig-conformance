@@ -1,0 +1,16 @@
+{
+  "a": {
+    "x": {
+      "type": "integer",
+      "value": "1"
+    },
+    "y": {
+      "type": "integer",
+      "value": "2"
+    },
+    "z": {
+      "type": "integer",
+      "value": "3"
+    }
+  }
+}

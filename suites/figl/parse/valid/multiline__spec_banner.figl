@@ -1,0 +1,4 @@
+banner = """                  # trailing comment on the value
+      Welcome!
+      Enjoy your stay.
+      """

@@ -1,0 +1,6 @@
+{
+  "a": {
+    "type": "string",
+    "value": "[0-9]+ years"
+  }
+}

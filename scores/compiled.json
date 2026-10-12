@@ -1,0 +1,120 @@
+{
+  "json": {
+    "accept": {
+      "correct": 95,
+      "total": 95
+    },
+    "reject": {
+      "correct": 188,
+      "total": 188
+    },
+    "edgecase": {
+      "correct": 25,
+      "total": 25,
+      "outside": {
+        "correct": 10,
+        "total": 10
+      }
+    }
+  },
+  "json5": {
+    "accept": {
+      "correct": 81,
+      "total": 81
+    },
+    "reject": {
+      "correct": 31,
+      "total": 31
+    },
+    "json tree": {
+      "correct": 25,
+      "total": 26
+    }
+  },
+  "yaml": {
+    "accept": {
+      "correct": 289,
+      "total": 289
+    },
+    "expect": {
+      "correct": 223,
+      "total": 261
+    },
+    "reprint": {
+      "correct": 289,
+      "total": 289
+    },
+    "json": {
+      "correct": 260,
+      "total": 289
+    },
+    "reject": {
+      "correct": 93,
+      "total": 93
+    },
+    "stream": {
+      "runnable": false,
+      "reason": "fig's API offers no stream splitter"
+    },
+    "reject-stream": {
+      "runnable": false,
+      "reason": "fig's API offers no stream splitter"
+    },
+    "1.1": {
+      "runnable": false,
+      "reason": "no dialect named \"yaml-1.1\""
+    }
+  },
+  "toml": {
+    "1.0 valid": {
+      "runnable": false,
+      "reason": "no dialect named \"toml-1.0\""
+    },
+    "1.0 invalid": {
+      "runnable": false,
+      "reason": "no dialect named \"toml-1.0\""
+    },
+    "1.1 valid": {
+      "correct": 218,
+      "total": 218
+    },
+    "1.1 invalid": {
+      "correct": 488,
+      "total": 488
+    }
+  },
+  "figl": {
+    "valid": {
+      "correct": 423,
+      "total": 423
+    },
+    "invalid": {
+      "correct": 165,
+      "total": 166
+    }
+  },
+  "plist": {
+    "valid": {
+      "correct": 9,
+      "total": 9
+    },
+    "oracle": {
+      "correct": 7,
+      "total": 7
+    },
+    "invalid": {
+      "correct": 5,
+      "total": 5
+    }
+  },
+  "nestedtext": {
+    "valid": {
+      "correct": 80,
+      "total": 80
+    },
+    "invalid": {
+      "correct": 68,
+      "total": 68
+    }
+  }
+}

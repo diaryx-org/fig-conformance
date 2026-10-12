@@ -1,0 +1,14 @@
+{
+  "a": {
+    "xs": [
+      {
+        "type": "string",
+        "value": "Adam Harris"
+      },
+      {
+        "type": "string",
+        "value": "B"
+      }
+    ]
+  }
+}

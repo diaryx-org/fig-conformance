@@ -1,0 +1,16 @@
+{
+  "a": [
+    {
+      "id": {
+        "type": "integer",
+        "value": "1"
+      }
+    },
+    {
+      "id": {
+        "type": "integer",
+        "value": "2"
+      }
+    }
+  ]
+}

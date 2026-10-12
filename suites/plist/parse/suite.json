@@ -1,0 +1,28 @@
+{
+  "dialect": "plist",
+  "spec": "PropertyList-1.0.dtd",
+  "source": {
+    "origin": "fig's own corpus, copied from fig's testdata/plist at 724988f; oracles are plutil's (scripts/plist-oracles.mjs)"
+  },
+  "checks": [
+    {
+      "name": "valid",
+      "kind": "parses",
+      "corpus": "valid",
+      "ext": "plist"
+    },
+    {
+      "name": "oracle",
+      "kind": "parses",
+      "corpus": "valid",
+      "ext": "plist",
+      "expect": "plain"
+    },
+    {
+      "name": "invalid",
+      "kind": "refuses",
+      "corpus": "invalid",
+      "ext": "plist"
+    }
+  ]
+}

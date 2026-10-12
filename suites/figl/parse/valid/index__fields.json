@@ -1,0 +1,20 @@
+{
+  "c": [
+    {
+      "name": {
+        "type": "string",
+        "value": "alpha"
+      },
+      "size": {
+        "type": "integer",
+        "value": "3"
+      }
+    },
+    {
+      "name": {
+        "type": "string",
+        "value": "beta"
+      }
+    }
+  ]
+}

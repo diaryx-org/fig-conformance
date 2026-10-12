@@ -1,0 +1,6 @@
+{
+  "my.key": {
+    "type": "string",
+    "value": "present"
+  }
+}

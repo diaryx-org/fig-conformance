@@ -1,0 +1,12 @@
+{
+  "a": [
+    {
+      "type": "string",
+      "value": "x#y"
+    },
+    {
+      "type": "string",
+      "value": "z"
+    }
+  ]
+}

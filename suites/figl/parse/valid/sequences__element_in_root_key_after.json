@@ -1,0 +1,12 @@
+{
+  "xs": [
+    {
+      "type": "integer",
+      "value": "1"
+    }
+  ],
+  "b": {
+    "type": "integer",
+    "value": "2"
+  }
+}

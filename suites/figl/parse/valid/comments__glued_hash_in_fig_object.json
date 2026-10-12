@@ -1,0 +1,8 @@
+{
+  "a": {
+    "tag": {
+      "type": "string",
+      "value": "a#b"
+    }
+  }
+}

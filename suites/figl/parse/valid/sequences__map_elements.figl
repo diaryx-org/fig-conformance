@@ -1,0 +1,6 @@
+servers
+> *
+> > host = a.com
+> > port = 25565
+> *
+> > host = b.com

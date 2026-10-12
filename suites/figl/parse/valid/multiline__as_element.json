@@ -1,0 +1,12 @@
+{
+  "xs": [
+    {
+      "type": "string",
+      "value": "x\ny"
+    },
+    {
+      "type": "string",
+      "value": "z"
+    }
+  ]
+}

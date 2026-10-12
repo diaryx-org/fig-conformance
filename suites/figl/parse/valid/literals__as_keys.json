@@ -1,0 +1,10 @@
+{
+  "true": {
+    "type": "integer",
+    "value": "1"
+  },
+  "null": {
+    "type": "integer",
+    "value": "2"
+  }
+}

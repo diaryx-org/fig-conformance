@@ -1,0 +1,30 @@
+{
+ "Katheryn McDaniel": {
+  "position": "president",
+  "address": "138 Almond Street\nTopeka, Kansas 20697",
+  "phone": {
+   "cell": "1-210-555-5297",
+   "work": "1-210-555-3423",
+   "home": "1-210-555-8470"
+  },
+  "email": "KateMcD@aol.com",
+  "kids": [
+   "Joanie",
+   "Terrance"
+  ]
+ },
+ "Margaret Hodge": {
+  "position": "vice president",
+  "address": "2586 Marigold Lane\nTopeka, Kansas 20697",
+  "phone": {
+   "cell": "1-470-555-0398",
+   "home": "1-470-555-7570"
+  },
+  "email": "margaret.hodge@ku.edu",
+  "kids": [
+   "Arnie",
+   "Zach",
+   "Maggie"
+  ]
+ }
+}

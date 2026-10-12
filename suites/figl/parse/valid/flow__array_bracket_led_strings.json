@@ -1,0 +1,12 @@
+{
+  "a": [
+    {
+      "type": "string",
+      "value": "[Blog](/Blog.md)"
+    },
+    {
+      "type": "string",
+      "value": "[Resume](/Resume.md)"
+    }
+  ]
+}

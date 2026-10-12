@@ -1,0 +1,24 @@
+{
+  "dialect": "nestedtext",
+  "spec": "3.x",
+  "checks": [
+    {
+      "name": "valid",
+      "kind": "parses",
+      "corpus": "valid",
+      "ext": "nt",
+      "expect": "plain",
+      "scalars": "strings"
+    },
+    {
+      "name": "invalid",
+      "kind": "refuses",
+      "corpus": "invalid",
+      "ext": "nt"
+    }
+  ],
+  "source": {
+    "upstream": "https://github.com/KenKundert/nestedtext_tests",
+    "commit": "5d1d91a24f7a54bcff249d090af47c73bb700d48"
+  }
+}

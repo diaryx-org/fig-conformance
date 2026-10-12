@@ -1,0 +1,18 @@
+{
+  "a": {
+    "xs": [
+      {
+        "n": {
+          "type": "integer",
+          "value": "1"
+        }
+      },
+      {
+        "n": {
+          "type": "integer",
+          "value": "2"
+        }
+      }
+    ]
+  }
+}

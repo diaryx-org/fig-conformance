@@ -1,0 +1,35 @@
+{
+  "dialect": "json5",
+  "spec": "1.0.0",
+  "checks": [
+    {
+      "name": "accept",
+      "kind": "parses",
+      "corpus": "cases",
+      "ext": [
+        "json",
+        "json5"
+      ]
+    },
+    {
+      "name": "reject",
+      "kind": "refuses",
+      "corpus": "cases",
+      "ext": [
+        "js",
+        "txt"
+      ]
+    },
+    {
+      "name": "json tree",
+      "kind": "agrees",
+      "corpus": "cases",
+      "ext": "json",
+      "with": "json"
+    }
+  ],
+  "source": {
+    "upstream": "https://github.com/json5/json5-tests",
+    "commit": "ceb24d4080137d70833f86c25659c1331b80a387"
+  }
+}

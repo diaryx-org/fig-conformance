@@ -1,0 +1,40 @@
+{
+  "dialect": "toml",
+  "spec": "1.1.0",
+  "checks": [
+    {
+      "name": "1.0 valid",
+      "kind": "parses",
+      "dialect": "toml-1.0",
+      "corpus": "1.0.0/valid",
+      "ext": "toml",
+      "expect": "tagged",
+      "numbers": "toml"
+    },
+    {
+      "name": "1.0 invalid",
+      "kind": "refuses",
+      "dialect": "toml-1.0",
+      "corpus": "1.0.0/invalid",
+      "ext": "toml"
+    },
+    {
+      "name": "1.1 valid",
+      "kind": "parses",
+      "corpus": "1.1.0/valid",
+      "ext": "toml",
+      "expect": "tagged",
+      "numbers": "toml"
+    },
+    {
+      "name": "1.1 invalid",
+      "kind": "refuses",
+      "corpus": "1.1.0/invalid",
+      "ext": "toml"
+    }
+  ],
+  "source": {
+    "upstream": "https://github.com/toml-lang/toml-test",
+    "commit": "af5f8052e9109206ad3977508263c97907f0797d"
+  }
+}

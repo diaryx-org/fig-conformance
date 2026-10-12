@@ -1,0 +1,14 @@
+{
+ "the backslash character": "\\",
+ "the single quote character": "'",
+ "the double quote character": "\"",
+ "the bell character": "\u0007",
+ "the back space character": "\b",
+ "the form feed character": "\f",
+ "the line feed character": "",
+ "the carriage return character": "",
+ "the horizontal tab character": "\t",
+ "the vertical tab character": "\u000b",
+ "the escape character": "\u001b",
+ "the delete character": ""
+}

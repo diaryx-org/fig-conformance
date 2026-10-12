@@ -1,0 +1,3 @@
+{
+ "gain [7:0]": "Gain control (quarter dB steps from -32 dB to +31.75 dB)"
+}
