@@ -5,7 +5,7 @@
   { "suite": "yaml", "dialect": "yaml", "module": "yaml", "ext": "yaml" },
   { "suite": "toml", "dialect": "toml", "module": "toml", "ext": "toml" },
   { "suite": "zon", "dialect": "zon", "module": "zon", "ext": "zon" },
-  { "suite": "figl", "dialect": "fig", "module": "fig", "ext": "figl" },
+  { "suite": "figl", "dialect": "figl", "module": "figl", "ext": "figl" },
   { "suite": "ini", "dialect": "ini", "module": "ini", "ext": "ini" },
   { "suite": "dotenv", "dialect": "dotenv", "module": "dotenv", "ext": "env" },
   { "suite": "properties", "dialect": "properties", "module": "properties", "ext": "properties" },

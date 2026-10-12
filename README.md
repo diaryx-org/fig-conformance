@@ -113,7 +113,7 @@ serves it, and its file extension.
 Recording needs a fig wasm module with every format compiled in:
 
 ```sh
-(cd ../fig && zig build wasm -Djson=true -Dyaml=true -Dtoml=true -Dzon=true -Dfig=true \
+(cd ../fig && zig build wasm -Djson=true -Dyaml=true -Dtoml=true -Dzon=true -Dfigl=true \
   -Dini=true -Ddotenv=true -Dproperties=true -Dplist=true -Dnestedtext=true --prefix /tmp/fig-ref)
 FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm npm run record:edits [suite…]
 ```
@@ -121,32 +121,23 @@ FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm npm run record:edits [suite…]
 Record again when a compiled editor changes, and read the diff: an
 expectation that moves is a change every implementation must follow.
 
-## Scoring the contract path
+## Scoring fig's own languages
 
-A fig wasm built with `-Dcontract-copies=true` registers each compiled
-language a second time through its contract vtable, as `c-<name>`, the
-first time a `c-` name is looked up. `FIG_DIALECT_PREFIX=c-` makes the
-runners score those copies instead of the compiled formats, with nothing
-registered from JavaScript:
-
-```sh
-FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm FIG_DIALECT_PREFIX=c- npm run parse:compiled -- --check scores/compiled.json
-FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm FIG_DIALECT_PREFIX=c- node --conditions=fig-source --import ./lib/reference-wasm.mjs runner/edits.mjs
-```
-
-It is how a Zig language is shown to lose nothing by reaching fig through
-the contract alone.
-
-A fig wasm built with `-Dcompiled-registry=false` has no compiled formats
-at all: its languages register through the contract under their own names,
-so the runners score them with no prefix, and the edit runner registers
-nothing for a dialect the module already has:
+fig 6.0 compiles no language into core: its Zig languages register through
+the contract like any other. A fig wasm built with them (`-D<name>=true`)
+has them registered under their own names, so the runners score them with
+no prefix, and the edit runner registers nothing for a dialect the module
+already has:
 
 ```sh
-(cd ../fig && zig build wasm -Djson=true … -Dnestedtext=true -Dcompiled-registry=false --prefix /tmp/fig-rl)
-FIG_REFERENCE_WASM=/tmp/fig-rl/bin/fig.wasm npm run parse:compiled -- --check scores/compiled.json
-FIG_REFERENCE_WASM=/tmp/fig-rl/bin/fig.wasm node --conditions=fig-source --import ./lib/reference-wasm.mjs runner/edits.mjs
+(cd ../fig && zig build wasm -Djson=true -Dyaml=true -Dtoml=true -Dzon=true -Dfigl=true \
+  -Dini=true -Ddotenv=true -Dproperties=true -Dplist=true -Dnestedtext=true --prefix /tmp/fig-ref)
+FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm npm run parse:compiled -- --check scores/compiled.json
+FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm node --conditions=fig-source --import ./lib/reference-wasm.mjs runner/edits.mjs
 ```
+
+`FIG_DIALECT_PREFIX` still prefixes every dialect name the runners ask for,
+for a module that registers its languages under prefixed names.
 
 ## Licence
 

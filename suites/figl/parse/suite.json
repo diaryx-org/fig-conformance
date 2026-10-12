@@ -1,5 +1,5 @@
 {
-  "dialect": "fig",
+  "dialect": "figl",
   "spec": "2.0",
   "source": {
     "origin": "written from fig's specification; see README.md"
