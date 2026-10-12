@@ -26,8 +26,9 @@ const failures = {};
 for (const lang of languages) {
   if (only.length && !only.includes(lang.suite)) continue;
   // With a dialect prefix the languages are the fig module's own copies
-  // (see lib/fig.mjs), so nothing is registered.
-  if (!process.env.FIG_DIALECT_PREFIX && !registered.has(lang.module)) {
+  // (see lib/fig.mjs), and a fig that already has the language (a reference
+  // wasm that bundles it) is scored as it stands: nothing is registered.
+  if (!process.env.FIG_DIALECT_PREFIX && !registered.has(lang.module) && fig.formatByName(lang.dialect) == null) {
     fig.registerLanguage(await languageModule(lang.module, opts.languages));
     registered.add(lang.module);
   }

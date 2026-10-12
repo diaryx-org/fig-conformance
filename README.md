@@ -137,6 +137,17 @@ FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm FIG_DIALECT_PREFIX=c- node --condit
 It is how a Zig language is shown to lose nothing by reaching fig through
 the contract alone.
 
+A fig wasm built with `-Dcompiled-registry=false` has no compiled formats
+at all: its languages register through the contract under their own names,
+so the runners score them with no prefix, and the edit runner registers
+nothing for a dialect the module already has:
+
+```sh
+(cd ../fig && zig build wasm -Djson=true … -Dnestedtext=true -Dcompiled-registry=false --prefix /tmp/fig-rl)
+FIG_REFERENCE_WASM=/tmp/fig-rl/bin/fig.wasm npm run parse:compiled -- --check scores/compiled.json
+FIG_REFERENCE_WASM=/tmp/fig-rl/bin/fig.wasm node --conditions=fig-source --import ./lib/reference-wasm.mjs runner/edits.mjs
+```
+
 ## Licence
 
 MIT or Apache-2.0, at your option. The edit sources, and the plist and
