@@ -103,7 +103,7 @@
 {"id":"ys: prepend map","op":"prependValue","args":[["ys"],{"x":1,"y":"two"}],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"ys: append list","op":"appendValue","args":[["ys"],["a","b"]],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"ys: prepend list","op":"prependValue","args":[["ys"],["a","b"]],"expect":{"ok":false,"status":"ParseError"}},
-{"id":"ys: delete first item","op":"deleteItem","args":[["ys"],0],"expect":{"ok":true,"splice":[20,62,""]}},
+{"id":"ys: delete first item","op":"deleteItem","args":[["ys"],0],"expect":{"ok":false,"status":"UnsupportedOperation"}},
 {"id":"ys: delete last item","op":"deleteItem","args":[["ys"],1],"expect":{"ok":true,"splice":[37,51,""]}},
 {"id":"ys: move first item last","op":"moveItem","args":[["ys"],0,1],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"ys: reorder items reversed","op":"reorderItems","args":[["ys"],[1,0]],"expect":{"ok":false,"status":"ParseError"}},

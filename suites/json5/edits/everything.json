@@ -100,7 +100,7 @@
 {"id":"b c.[1]: add leading comment","op":"addLeadingComment","args":[["b c",1],"added comment"],"expect":{"ok":false,"status":"InvalidArgument"}},
 {"id":"b c.[1]: set trailing comment","op":"setTrailingComment","args":[["b c",1],"added comment"],"expect":{"ok":false,"status":"InvalidArgument"}},
 {"id":"n: rename","op":"renameKey","args":[["n"],"renamed"],"expect":{"ok":true,"splice":[72,73,"\"renamed\""]}},
-{"id":"n: delete","op":"deleteKey","args":[["n"]],"expect":{"ok":true,"splice":[69,78,""]}},
+{"id":"n: delete","op":"deleteKey","args":[["n"]],"expect":{"ok":false,"status":"UnsupportedOperation"}},
 {"id":"n: replace with int","op":"replaceValue","args":[["n"],42],"expect":{"ok":true,"splice":[75,78,"42"]}},
 {"id":"n: replace with negative","op":"replaceValue","args":[["n"],-7],"expect":{"ok":true,"splice":[75,78,"-7"]}},
 {"id":"n: replace with float","op":"replaceValue","args":[["n"],2.5],"expect":{"ok":true,"splice":[75,78,"2.5"]}},

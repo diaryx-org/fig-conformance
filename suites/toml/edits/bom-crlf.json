@@ -31,7 +31,7 @@
 {"id":"bom: replace with empty-map","op":"replaceValue","args":[["bom"],{}],"expect":{"ok":true,"splice":[0,13,"bom = {}"]}},
 {"id":"bom: replace with empty-list","op":"replaceValue","args":[["bom"],[]],"expect":{"ok":true,"splice":[0,13,"bom = []"]}},
 {"id":"bom: add leading comment","op":"addLeadingComment","args":[["bom"],"added comment"],"expect":{"ok":false,"status":"ParseError"}},
-{"id":"bom: set trailing comment","op":"setTrailingComment","args":[["bom"],"added comment"],"expect":{"ok":false,"status":"ParseError"}},
+{"id":"bom: set trailing comment","op":"setTrailingComment","args":[["bom"],"added comment"],"expect":{"ok":true,"splice":[0,13,"bom = true # added comment"]}},
 {"id":"s: rename","op":"renameKey","args":[["s"],"renamed"],"expect":{"ok":true,"splice":[0,17,"bom = true\r\n[renamed"]}},
 {"id":"s: delete","op":"deleteKey","args":[["s"]],"expect":{"ok":false,"status":"InvalidArgument"}},
 {"id":"s: replace with int","op":"replaceValue","args":[["s"],42],"expect":{"ok":false,"status":"InvalidArgument"}},
@@ -49,7 +49,7 @@
 {"id":"s: replace with empty-map","op":"replaceValue","args":[["s"],{}],"expect":{"ok":false,"status":"InvalidArgument"}},
 {"id":"s: replace with empty-list","op":"replaceValue","args":[["s"],[]],"expect":{"ok":false,"status":"InvalidArgument"}},
 {"id":"s: add leading comment","op":"addLeadingComment","args":[["s"],"added comment"],"expect":{"ok":true,"splice":[0,14,"bom = true\r\n# added comment"]}},
-{"id":"s: set trailing comment","op":"setTrailingComment","args":[["s"],"added comment"],"expect":{"ok":false,"status":"ParseError"}},
+{"id":"s: set trailing comment","op":"setTrailingComment","args":[["s"],"added comment"],"expect":{"ok":true,"splice":[0,18,"bom = true\r\n[s] # added comment"]}},
 {"id":"s: delete container","op":"deleteContainer","args":[["s"]],"expect":{"ok":true,"splice":[0,49,"bom = true"]}},
 {"id":"s: rename container","op":"renameContainer","args":[["s"],"renamed"],"expect":{"ok":true,"splice":[0,17,"bom = true\r\n[renamed"]}},
 {"id":"s: insert int","op":"insertValue","args":[["s"],"added_int",42],"expect":{"ok":true,"splice":[0,50,"bom = true\r\n[s]\r\nk = \"crlf\"\r\nml = \"\"\"\r\nx\r\ny\"\"\"\r\nadded_int = 42"]}},
@@ -84,7 +84,7 @@
 {"id":"s.k: replace with empty-map","op":"replaceValue","args":[["s","k"],{}],"expect":{"ok":true,"splice":[0,30,"bom = true\r\n[s]\r\nk = {}"]}},
 {"id":"s.k: replace with empty-list","op":"replaceValue","args":[["s","k"],[]],"expect":{"ok":true,"splice":[0,30,"bom = true\r\n[s]\r\nk = []"]}},
 {"id":"s.k: add leading comment","op":"addLeadingComment","args":[["s","k"],"added comment"],"expect":{"ok":true,"splice":[0,19,"bom = true\r\n[s]\r\n# added comment"]}},
-{"id":"s.k: set trailing comment","op":"setTrailingComment","args":[["s","k"],"added comment"],"expect":{"ok":false,"status":"ParseError"}},
+{"id":"s.k: set trailing comment","op":"setTrailingComment","args":[["s","k"],"added comment"],"expect":{"ok":true,"splice":[0,30,"bom = true\r\n[s]\r\nk = \"crlf\" # added comment"]}},
 {"id":"s.ml: rename","op":"renameKey","args":[["s","ml"],"renamed"],"expect":{"ok":true,"splice":[0,34,"bom = true\r\n[s]\r\nk = \"crlf\"\r\nrenamed"]}},
 {"id":"s.ml: delete","op":"deleteKey","args":[["s","ml"]],"expect":{"ok":true,"splice":[0,48,"bom = true\r\n[s]\r\nk = \"crlf"]}},
 {"id":"s.ml: replace with int","op":"replaceValue","args":[["s","ml"],42],"expect":{"ok":true,"splice":[0,49,"bom = true\r\n[s]\r\nk = \"crlf\"\r\nml = 42"]}},
@@ -102,5 +102,5 @@
 {"id":"s.ml: replace with empty-map","op":"replaceValue","args":[["s","ml"],{}],"expect":{"ok":true,"splice":[0,49,"bom = true\r\n[s]\r\nk = \"crlf\"\r\nml = {}"]}},
 {"id":"s.ml: replace with empty-list","op":"replaceValue","args":[["s","ml"],[]],"expect":{"ok":true,"splice":[0,49,"bom = true\r\n[s]\r\nk = \"crlf\"\r\nml = []"]}},
 {"id":"s.ml: add leading comment","op":"addLeadingComment","args":[["s","ml"],"added comment"],"expect":{"ok":true,"splice":[0,31,"bom = true\r\n[s]\r\nk = \"crlf\"\r\n# added comment"]}},
-{"id":"s.ml: set trailing comment","op":"setTrailingComment","args":[["s","ml"],"added comment"],"expect":{"ok":false,"status":"ParseError"}}
+{"id":"s.ml: set trailing comment","op":"setTrailingComment","args":[["s","ml"],"added comment"],"expect":{"ok":true,"splice":[0,49,"bom = true\r\n[s]\r\nk = \"crlf\"\r\nml = \"\"\"\r\nx\r\ny\"\"\" # added comment"]}}
 ]}

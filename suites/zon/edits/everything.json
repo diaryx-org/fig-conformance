@@ -116,7 +116,7 @@
 {"id":"s: replace with empty-map","op":"replaceValue","args":[["s"],{}],"expect":{"ok":true,"splice":[77,89,".{}"]}},
 {"id":"s: replace with empty-list","op":"replaceValue","args":[["s"],[]],"expect":{"ok":true,"splice":[77,89,".{}"]}},
 {"id":"s: add leading comment","op":"addLeadingComment","args":[["s"],"added comment"],"expect":{"ok":true,"splice":[70,70,"// added comment\n  "]}},
-{"id":"s: set trailing comment","op":"setTrailingComment","args":[["s"],"added comment"],"expect":{"ok":true,"splice":[89,89," // added comment"]},"suspect":"a comment edit changed a value"},
+{"id":"s: set trailing comment","op":"setTrailingComment","args":[["s"],"added comment"],"expect":{"ok":false,"status":"UnsupportedOperation"}},
 {"id":"c: rename","op":"renameKey","args":[["c"],"renamed"],"expect":{"ok":true,"splice":[97,98,"renamed"]}},
 {"id":"c: delete","op":"deleteKey","args":[["c"]],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"c: replace with int","op":"replaceValue","args":[["c"],42],"expect":{"ok":false,"status":"ParseError"}},

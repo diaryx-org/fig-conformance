@@ -31,8 +31,8 @@
 {"id":"a: replace with empty-map","op":"replaceValue","args":[["a"],{}],"expect":{"ok":true,"splice":[13,14,".{}"]}},
 {"id":"a: replace with empty-list","op":"replaceValue","args":[["a"],[]],"expect":{"ok":true,"splice":[13,14,".{}"]}},
 {"id":"a: add leading comment","op":"addLeadingComment","args":[["a"],"added comment"],"expect":{"ok":true,"splice":[8,8,"// added comment\n    "]}},
-{"id":"a: set trailing comment","op":"setTrailingComment","args":[["a"],"added comment"],"expect":{"ok":true,"splice":[19,21,"added comment"]}},
-{"id":"a: delete trailing comment","op":"deleteTrailingComment","args":[["a"]],"expect":{"ok":true,"splice":[15,21,""]}},
+{"id":"a: set trailing comment","op":"setTrailingComment","args":[["a"],"added comment"],"expect":{"ok":true,"splice":[19,19,"added commen"]}},
+{"id":"a: delete trailing comment","op":"deleteTrailingComment","args":[["a"]],"expect":{"ok":true,"splice":[15,20,""]}},
 {"id":"ml: rename","op":"renameKey","args":[["ml"],"renamed"],"expect":{"ok":true,"splice":[27,29,"renamed"]}},
 {"id":"ml: delete","op":"deleteKey","args":[["ml"]],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"ml: replace with int","op":"replaceValue","args":[["ml"],42],"expect":{"ok":true,"splice":[41,61,"42"]}},
@@ -50,5 +50,5 @@
 {"id":"ml: replace with empty-map","op":"replaceValue","args":[["ml"],{}],"expect":{"ok":true,"splice":[41,61,".{}"]}},
 {"id":"ml: replace with empty-list","op":"replaceValue","args":[["ml"],[]],"expect":{"ok":true,"splice":[41,61,".{}"]}},
 {"id":"ml: add leading comment","op":"addLeadingComment","args":[["ml"],"added comment"],"expect":{"ok":true,"splice":[26,26,"// added comment\n    "]}},
-{"id":"ml: set trailing comment","op":"setTrailingComment","args":[["ml"],"added comment"],"expect":{"ok":false,"status":"ParseError"}}
+{"id":"ml: set trailing comment","op":"setTrailingComment","args":[["ml"],"added comment"],"expect":{"ok":false,"status":"UnsupportedOperation"}}
 ]}

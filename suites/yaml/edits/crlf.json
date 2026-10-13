@@ -31,7 +31,7 @@
 {"id":"a: replace with empty-map","op":"replaceValue","args":[["a"],{}],"expect":{"ok":true,"splice":[3,4,"{}"]}},
 {"id":"a: replace with empty-list","op":"replaceValue","args":[["a"],[]],"expect":{"ok":true,"splice":[3,4,"[]"]}},
 {"id":"a: add leading comment","op":"addLeadingComment","args":[["a"],"added comment"],"expect":{"ok":true,"splice":[0,0,"# added comment\n"]}},
-{"id":"a: set trailing comment","op":"setTrailingComment","args":[["a"],"added comment"],"expect":{"ok":true,"splice":[5,5," # added comment"]},"suspect":"a comment edit changed a value"},
+{"id":"a: set trailing comment","op":"setTrailingComment","args":[["a"],"added comment"],"expect":{"ok":true,"splice":[4,4," # added comment"]}},
 {"id":"b: rename","op":"renameKey","args":[["b"],"renamed"],"expect":{"ok":true,"splice":[6,7,"renamed"]}},
 {"id":"b: delete","op":"deleteKey","args":[["b"]],"expect":{"ok":true,"splice":[6,43,""]}},
 {"id":"b: replace with int","op":"replaceValue","args":[["b"],42],"expect":{"ok":true,"splice":[8,42," 42"]}},
@@ -49,7 +49,7 @@
 {"id":"b: replace with empty-map","op":"replaceValue","args":[["b"],{}],"expect":{"ok":true,"splice":[8,42," {}"]}},
 {"id":"b: replace with empty-list","op":"replaceValue","args":[["b"],[]],"expect":{"ok":true,"splice":[8,42," []"]}},
 {"id":"b: add leading comment","op":"addLeadingComment","args":[["b"],"added comment"],"expect":{"ok":true,"splice":[6,6,"# added comment\n"]}},
-{"id":"b: set trailing comment","op":"setTrailingComment","args":[["b"],"added comment"],"expect":{"ok":false,"status":"ParseError"}},
+{"id":"b: set trailing comment","op":"setTrailingComment","args":[["b"],"added comment"],"expect":{"ok":true,"splice":[8,8," # added comment"]}},
 {"id":"b: append int","op":"appendValue","args":[["b"],42],"expect":{"ok":true,"splice":[43,43,"  - 42\n"]}},
 {"id":"b: prepend int","op":"prependValue","args":[["b"],42],"expect":{"ok":true,"splice":[14,14,"42\n  - "]}},
 {"id":"b: append spaced","op":"appendValue","args":[["b"],"two words"],"expect":{"ok":true,"splice":[43,43,"  - two words\n"]}},
@@ -78,7 +78,7 @@
 {"id":"b.[0]: replace with empty-map","op":"replaceValue","args":[["b",0],{}],"expect":{"ok":true,"splice":[14,15,"{}"]}},
 {"id":"b.[0]: replace with empty-list","op":"replaceValue","args":[["b",0],[]],"expect":{"ok":true,"splice":[14,15,"[]"]}},
 {"id":"b.[0]: add leading comment","op":"addLeadingComment","args":[["b",0],"added comment"],"expect":{"ok":true,"splice":[12,12,"# added comment\n  "]}},
-{"id":"b.[0]: set trailing comment","op":"setTrailingComment","args":[["b",0],"added comment"],"expect":{"ok":true,"splice":[16,16," # added comment"]},"suspect":"a comment edit changed a value"},
+{"id":"b.[0]: set trailing comment","op":"setTrailingComment","args":[["b",0],"added comment"],"expect":{"ok":true,"splice":[15,15," # added comment"]}},
 {"id":"b.[1]: replace with int","op":"replaceValue","args":[["b",1],42],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"b.[1]: replace with negative","op":"replaceValue","args":[["b",1],-7],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"b.[1]: replace with float","op":"replaceValue","args":[["b",1],2.5],"expect":{"ok":false,"status":"ParseError"}},
@@ -94,7 +94,7 @@
 {"id":"b.[1]: replace with empty-map","op":"replaceValue","args":[["b",1],{}],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"b.[1]: replace with empty-list","op":"replaceValue","args":[["b",1],[]],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"b.[1]: add leading comment","op":"addLeadingComment","args":[["b",1],"added comment"],"expect":{"ok":true,"splice":[19,19,"# added comment\n  "]}},
-{"id":"b.[1]: set trailing comment","op":"setTrailingComment","args":[["b",1],"added comment"],"expect":{"ok":true,"splice":[50,50," # added comment"]},"suspect":"a comment edit changed a value"},
+{"id":"b.[1]: set trailing comment","op":"setTrailingComment","args":[["b",1],"added comment"],"expect":{"ok":true,"splice":[22,22," # added comment"]}},
 {"id":"c: rename","op":"renameKey","args":[["c"],"renamed"],"expect":{"ok":true,"splice":[43,44,"renamed"]}},
 {"id":"c: delete","op":"deleteKey","args":[["c"]],"expect":{"ok":true,"splice":[43,58,""]}},
 {"id":"c: replace with int","op":"replaceValue","args":[["c"],42],"expect":{"ok":true,"splice":[46,56,"42"]}},
@@ -112,5 +112,5 @@
 {"id":"c: replace with empty-map","op":"replaceValue","args":[["c"],{}],"expect":{"ok":true,"splice":[46,56,"{}"]}},
 {"id":"c: replace with empty-list","op":"replaceValue","args":[["c"],[]],"expect":{"ok":true,"splice":[46,56,"[]"]}},
 {"id":"c: add leading comment","op":"addLeadingComment","args":[["c"],"added comment"],"expect":{"ok":true,"splice":[43,43,"# added comment\n"]}},
-{"id":"c: set trailing comment","op":"setTrailingComment","args":[["c"],"added comment"],"expect":{"ok":false,"status":"ParseError"}}
+{"id":"c: set trailing comment","op":"setTrailingComment","args":[["c"],"added comment"],"expect":{"ok":true,"splice":[56,56," # added comment"]}}
 ]}

@@ -31,7 +31,7 @@
 {"id":"a: replace with empty-map","op":"replaceValue","args":[["a"],{}],"expect":{"ok":true,"splice":[0,8,"a = {}"]}},
 {"id":"a: replace with empty-list","op":"replaceValue","args":[["a"],[]],"expect":{"ok":true,"splice":[0,8,"a = []"]}},
 {"id":"a: add leading comment","op":"addLeadingComment","args":[["a"],"added comment"],"expect":{"ok":false,"status":"ParseError"}},
-{"id":"a: set trailing comment","op":"setTrailingComment","args":[["a"],"added comment"],"expect":{"ok":true,"splice":[0,9,"a = 1\r # added comment"]}},
+{"id":"a: set trailing comment","op":"setTrailingComment","args":[["a"],"added comment"],"expect":{"ok":true,"splice":[0,8,"a = 1 # added comment"]}},
 {"id":"b: rename","op":"renameKey","args":[["b"],"renamed"],"expect":{"ok":true,"splice":[0,11,"a = 1\r\nrenamed"]}},
 {"id":"b: delete","op":"deleteKey","args":[["b"]],"expect":{"ok":false,"status":"InvalidArgument"}},
 {"id":"b: replace with int","op":"replaceValue","args":[["b"],42],"expect":{"ok":true,"splice":[0,19,"a = 1\r\nb = 4"]}},
@@ -49,7 +49,7 @@
 {"id":"b: replace with empty-map","op":"replaceValue","args":[["b"],{}],"expect":{"ok":true,"splice":[0,20,"a = 1\r\nb = {}"]}},
 {"id":"b: replace with empty-list","op":"replaceValue","args":[["b"],[]],"expect":{"ok":true,"splice":[0,20,"a = 1\r\nb = []"]}},
 {"id":"b: add leading comment","op":"addLeadingComment","args":[["b"],"added comment"],"expect":{"ok":true,"splice":[0,9,"a = 1\r\n# added comment"]}},
-{"id":"b: set trailing comment","op":"setTrailingComment","args":[["b"],"added comment"],"expect":{"ok":false,"status":"ParseError"}},
+{"id":"b: set trailing comment","op":"setTrailingComment","args":[["b"],"added comment"],"expect":{"ok":true,"splice":[0,11,"a = 1\r\nb # added comment"]}},
 {"id":"b: delete container","op":"deleteContainer","args":[["b"]],"expect":{"ok":true,"splice":[0,20,"a = 1"]}},
 {"id":"b: rename container","op":"renameContainer","args":[["b"],"renamed"],"expect":{"ok":true,"splice":[0,11,"a = 1\r\nrenamed"]}},
 {"id":"b: insert int","op":"insertValue","args":[["b"],"added_int",42],"expect":{"ok":true,"splice":[0,21,"a = 1\r\nb\r\n> c = 2\r\n> added_int = 42"]}},
@@ -82,7 +82,7 @@
 {"id":"b.c: replace with empty-map","op":"replaceValue","args":[["b","c"],{}],"expect":{"ok":true,"splice":[0,20,"a = 1\r\nb\r\n> c = {}"]}},
 {"id":"b.c: replace with empty-list","op":"replaceValue","args":[["b","c"],[]],"expect":{"ok":true,"splice":[0,20,"a = 1\r\nb\r\n> c = []"]}},
 {"id":"b.c: add leading comment","op":"addLeadingComment","args":[["b","c"],"added comment"],"expect":{"ok":true,"splice":[0,12,"a = 1\r\nb\r\n> # added comment"]}},
-{"id":"b.c: set trailing comment","op":"setTrailingComment","args":[["b","c"],"added comment"],"expect":{"ok":true,"splice":[0,21,"a = 1\r\nb\r\n> c = 2\r # added comment"]}},
+{"id":"b.c: set trailing comment","op":"setTrailingComment","args":[["b","c"],"added comment"],"expect":{"ok":true,"splice":[0,20,"a = 1\r\nb\r\n> c = 2 # added comment"]}},
 {"id":"ml: rename","op":"renameKey","args":[["ml"],"renamed"],"expect":{"ok":true,"splice":[0,24,"a = 1\r\nb\r\n> c = 2\r\nrenamed"]}},
 {"id":"ml: delete","op":"deleteKey","args":[["ml"]],"expect":{"ok":true,"splice":[0,38,"a = 1\r\nb\r\n> c = 2"]}},
 {"id":"ml: replace with int","op":"replaceValue","args":[["ml"],42],"expect":{"ok":true,"splice":[0,38,"a = 1\r\nb\r\n> c = 2\r\nml = 42"]}},
@@ -100,5 +100,5 @@
 {"id":"ml: replace with empty-map","op":"replaceValue","args":[["ml"],{}],"expect":{"ok":true,"splice":[0,38,"a = 1\r\nb\r\n> c = 2\r\nml = {}"]}},
 {"id":"ml: replace with empty-list","op":"replaceValue","args":[["ml"],[]],"expect":{"ok":true,"splice":[0,38,"a = 1\r\nb\r\n> c = 2\r\nml = []"]}},
 {"id":"ml: add leading comment","op":"addLeadingComment","args":[["ml"],"added comment"],"expect":{"ok":true,"splice":[0,21,"a = 1\r\nb\r\n> c = 2\r\n# added comment"]}},
-{"id":"ml: set trailing comment","op":"setTrailingComment","args":[["ml"],"added comment"],"expect":{"ok":false,"status":"ParseError"}}
+{"id":"ml: set trailing comment","op":"setTrailingComment","args":[["ml"],"added comment"],"expect":{"ok":true,"splice":[0,38,"a = 1\r\nb\r\n> c = 2\r\nml = '''\r\nx\r\n''' # added comment"]}}
 ]}

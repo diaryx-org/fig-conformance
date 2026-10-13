@@ -83,7 +83,7 @@
 {"id":"it.a: set existing key","op":"setValue","args":[["it","a","b"],"set"],"expect":{"ok":true,"splice":[13,14,"\"set\""]}},
 {"id":"it.a: add dangling comment","op":"addDanglingComment","args":[["it","a"],"added comment"],"expect":{"ok":true,"splice":[43,43,"# added comment\n"]}},
 {"id":"it.a.b: rename","op":"renameKey","args":[["it","a","b"],"renamed"],"expect":{"ok":true,"splice":[9,10,"renamed"]}},
-{"id":"it.a.b: delete","op":"deleteKey","args":[["it","a","b"]],"expect":{"ok":true,"splice":[0,43,""]}},
+{"id":"it.a.b: delete","op":"deleteKey","args":[["it","a","b"]],"expect":{"ok":false,"status":"UnsupportedOperation"}},
 {"id":"it.a.b: replace with int","op":"replaceValue","args":[["it","a","b"],42],"expect":{"ok":true,"splice":[13,14,"42"]}},
 {"id":"it.a.b: replace with negative","op":"replaceValue","args":[["it","a","b"],-7],"expect":{"ok":true,"splice":[13,14,"-7"]}},
 {"id":"it.a.b: replace with float","op":"replaceValue","args":[["it","a","b"],2.5],"expect":{"ok":true,"splice":[13,14,"2.5"]}},

@@ -31,7 +31,7 @@
 {"id":"A: replace with empty-map","op":"replaceValue","args":[["A"],{}],"expect":{"ok":true,"splice":[2,3,""]}},
 {"id":"A: replace with empty-list","op":"replaceValue","args":[["A"],[]],"expect":{"ok":false,"status":"UnsupportedFormat"}},
 {"id":"A: add leading comment","op":"addLeadingComment","args":[["A"],"added comment"],"expect":{"ok":true,"splice":[0,0,"# added comment\n"]}},
-{"id":"A: set trailing comment","op":"setTrailingComment","args":[["A"],"added comment"],"expect":{"ok":false,"status":"ParseError"}},
+{"id":"A: set trailing comment","op":"setTrailingComment","args":[["A"],"added comment"],"expect":{"ok":true,"splice":[3,3," # added comment"]}},
 {"id":"B: rename","op":"renameKey","args":[["B"],"renamed"],"expect":{"ok":true,"splice":[5,6,"renamed"]}},
 {"id":"B: delete","op":"deleteKey","args":[["B"]],"expect":{"ok":true,"splice":[5,15,""]}},
 {"id":"B: replace with int","op":"replaceValue","args":[["B"],42],"expect":{"ok":true,"splice":[7,13,"42"]}},
@@ -49,7 +49,7 @@
 {"id":"B: replace with empty-map","op":"replaceValue","args":[["B"],{}],"expect":{"ok":true,"splice":[7,13,""]}},
 {"id":"B: replace with empty-list","op":"replaceValue","args":[["B"],[]],"expect":{"ok":false,"status":"UnsupportedFormat"}},
 {"id":"B: add leading comment","op":"addLeadingComment","args":[["B"],"added comment"],"expect":{"ok":true,"splice":[5,5,"# added comment\n"]}},
-{"id":"B: set trailing comment","op":"setTrailingComment","args":[["B"],"added comment"],"expect":{"ok":false,"status":"ParseError"}},
+{"id":"B: set trailing comment","op":"setTrailingComment","args":[["B"],"added comment"],"expect":{"ok":true,"splice":[13,13," # added comment"]}},
 {"id":"C: rename","op":"renameKey","args":[["C"],"renamed"],"expect":{"ok":true,"splice":[15,16,"renamed"]}},
 {"id":"C: delete","op":"deleteKey","args":[["C"]],"expect":{"ok":true,"splice":[15,25,""]}},
 {"id":"C: replace with int","op":"replaceValue","args":[["C"],42],"expect":{"ok":true,"splice":[17,23,"42"]}},
@@ -67,5 +67,5 @@
 {"id":"C: replace with empty-map","op":"replaceValue","args":[["C"],{}],"expect":{"ok":true,"splice":[17,23,""]}},
 {"id":"C: replace with empty-list","op":"replaceValue","args":[["C"],[]],"expect":{"ok":false,"status":"UnsupportedFormat"}},
 {"id":"C: add leading comment","op":"addLeadingComment","args":[["C"],"added comment"],"expect":{"ok":true,"splice":[15,15,"# added comment\n"]}},
-{"id":"C: set trailing comment","op":"setTrailingComment","args":[["C"],"added comment"],"expect":{"ok":false,"status":"ParseError"}}
+{"id":"C: set trailing comment","op":"setTrailingComment","args":[["C"],"added comment"],"expect":{"ok":true,"splice":[23,23," # added comment"]}}
 ]}

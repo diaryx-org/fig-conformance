@@ -187,7 +187,7 @@
 {"id":"server.text: replace with empty-map","op":"replaceValue","args":[["server","text"],{}],"expect":{"ok":true,"splice":[110,137,"{}"]}},
 {"id":"server.text: replace with empty-list","op":"replaceValue","args":[["server","text"],[]],"expect":{"ok":true,"splice":[110,137,"[]"]}},
 {"id":"server.text: add leading comment","op":"addLeadingComment","args":[["server","text"],"added comment"],"expect":{"ok":true,"splice":[104,104,"# added comment\n  "]}},
-{"id":"server.text: set trailing comment","op":"setTrailingComment","args":[["server","text"],"added comment"],"expect":{"ok":true,"splice":[163,163," # added comment"]}},
+{"id":"server.text: set trailing comment","op":"setTrailingComment","args":[["server","text"],"added comment"],"expect":{"ok":true,"splice":[111,111," # added comment"]}},
 {"id":"server.flow: rename","op":"renameKey","args":[["server","flow"],"renamed"],"expect":{"ok":true,"splice":[140,144,"renamed"]}},
 {"id":"server.flow: delete","op":"deleteKey","args":[["server","flow"]],"expect":{"ok":true,"splice":[138,164,""]}},
 {"id":"server.flow: replace with int","op":"replaceValue","args":[["server","flow"],42],"expect":{"ok":true,"splice":[146,163,"42"]}},
