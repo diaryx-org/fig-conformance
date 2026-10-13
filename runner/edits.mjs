@@ -3,7 +3,8 @@
 //   npm run edits [-- --languages <dir>] [--failures <file>] [suite…]
 //
 // Each language is a module exporting a fig `Language` object, found as
-// `<dir>/<module>.js` (default: the fig package's own `languages/`), and
+// `<dir>/<module>.js` or `<dir>/<package>/js/<package>.js` (default: the fig
+// package's JavaScript ones, `js/`), and
 // registered into a fig module that compiles no format in. One line per
 // suite: cases whose outcome matches, of all cases, and how many of those
 // matches are to a recorded answer marked `suspect` (see lib/edits.mjs).
@@ -29,7 +30,7 @@ for (const lang of languages) {
   // (see lib/fig.mjs), and a fig that already has the language (a reference
   // wasm that bundles it) is scored as it stands: nothing is registered.
   if (!process.env.FIG_DIALECT_PREFIX && !registered.has(lang.module) && fig.formatByName(lang.dialect) == null) {
-    fig.registerLanguage(await languageModule(lang.module, opts.languages));
+    fig.registerLanguage(await languageModule(lang, opts.languages));
     registered.add(lang.module);
   }
   const format = fig.formatByName(lang.dialect);

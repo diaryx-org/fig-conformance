@@ -50,7 +50,7 @@ the plist oracles. Pass a checkout to use it instead of cloning.
 
 ```sh
 npm run parse                       # the JS languages (@diaryx/fig/js/*), registered into a language-free fig
-npm run parse:native -- --check scores/compiled.json  # fig's Zig, a wasm module per language (@diaryx/fig/languages/*)
+npm run parse:native -- --check scores/compiled.json  # fig's Zig, a wasm module per language (@diaryx/fig-<name>, in ../fig/languages)
 npm run parse -- yaml toml          # some suites
 npm run parse -- --languages dir    # your own language modules, <dir>/<name>.js
 npm run parse -- --failures f.json  # every failing case, and why

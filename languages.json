@@ -1,7 +1,7 @@
 [
   { "suite": "json", "dialect": "json", "module": "json", "ext": "json" },
-  { "suite": "jsonc", "dialect": "jsonc", "module": "json5", "ext": "jsonc" },
-  { "suite": "json5", "dialect": "json5", "module": "json5", "ext": "json5" },
+  { "suite": "jsonc", "dialect": "jsonc", "module": "json5", "package": "json", "ext": "jsonc" },
+  { "suite": "json5", "dialect": "json5", "module": "json5", "package": "json", "ext": "json5" },
   { "suite": "yaml", "dialect": "yaml", "module": "yaml", "ext": "yaml" },
   { "suite": "toml", "dialect": "toml", "module": "toml", "ext": "toml" },
   { "suite": "zon", "dialect": "zon", "module": "zon", "ext": "zon" },

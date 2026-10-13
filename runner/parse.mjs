@@ -9,8 +9,9 @@
 // formats compiled into the fig module the package loads (`parse:compiled`
 // swaps in a module with every format compiled in), or language modules
 // registered into the package's own module, which compiles none: by
-// default the package's `languages/`, else `<dir>/<module>.js` for each
-// module `languages.json` names. A dialect the module can already read is
+// default the package's JavaScript ones (`js/`), else `<dir>/<module>.js`,
+// or `<dir>/<package>/js/<package>.js` for a directory laid out as fig's
+// `languages/`, for each module `languages.json` names. A dialect the module can already read is
 // not registered over.
 //
 // One line per check: cases that came out right, of all cases. Cases a
@@ -44,7 +45,7 @@ for (const lang of languages) {
   if (readable(lang.dialect)) continue;
   let module;
   try {
-    module = await languageModule(lang.module, opts.languages);
+    module = await languageModule(lang, opts.languages);
   } catch (e) {
     if (!opts.json) console.error(`parse: no ${lang.module} module (${e.code ?? e.message})`);
     continue;

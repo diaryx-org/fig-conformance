@@ -61,18 +61,18 @@
       "total": 1
     },
     "1.1": {
-      "runnable": false,
-      "reason": "no dialect named \"yaml-1.1\""
+      "correct": 14,
+      "total": 14
     }
   },
   "toml": {
     "1.0 valid": {
-      "runnable": false,
-      "reason": "no dialect named \"toml-1.0\""
+      "correct": 209,
+      "total": 209
     },
     "1.0 invalid": {
-      "runnable": false,
-      "reason": "no dialect named \"toml-1.0\""
+      "correct": 495,
+      "total": 495
     },
     "1.1 valid": {
       "correct": 218,
