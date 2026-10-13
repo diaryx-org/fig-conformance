@@ -49,7 +49,8 @@ commit and writes the corpus, without parsing anything with fig:
 the plist oracles. Pass a checkout to use it instead of cloning.
 
 ```sh
-npm run parse                       # the JS languages, registered into a language-free fig
+npm run parse                       # the JS languages (@diaryx/fig/js/*), registered into a language-free fig
+npm run parse:native -- --check scores/compiled.json  # fig's Zig, a wasm module per language (@diaryx/fig/languages/*)
 npm run parse -- yaml toml          # some suites
 npm run parse -- --languages dir    # your own language modules, <dir>/<name>.js
 npm run parse -- --failures f.json  # every failing case, and why
@@ -99,7 +100,8 @@ Node 24 or later, and a fig checkout beside this one (or `FIG_PACKAGE`
 pointing at its `bindings/typescript`).
 
 ```sh
-npm run edits                      # every suite, against @diaryx/fig's languages
+npm run edits                      # every suite, against @diaryx/fig's JavaScript languages (js/)
+npm run edits:native               # against its native ones: fig's Zig, a wasm module per language
 npm run edits -- yaml toml         # some suites
 npm run edits -- --languages dir   # your own language modules, <dir>/<name>.js
 npm run edits -- --failures f.json # every mismatch, expected and got
