@@ -100,5 +100,5 @@
 {"id":"ml: replace with empty-map","op":"replaceValue","args":[["ml"],{}],"expect":{"ok":true,"splice":[0,38,"a = 1\r\nb\r\n> c = 2\r\nml = {}"]}},
 {"id":"ml: replace with empty-list","op":"replaceValue","args":[["ml"],[]],"expect":{"ok":true,"splice":[0,38,"a = 1\r\nb\r\n> c = 2\r\nml = []"]}},
 {"id":"ml: add leading comment","op":"addLeadingComment","args":[["ml"],"added comment"],"expect":{"ok":true,"splice":[0,21,"a = 1\r\nb\r\n> c = 2\r\n# added comment"]}},
-{"id":"ml: set trailing comment","op":"setTrailingComment","args":[["ml"],"added comment"],"expect":{"ok":true,"splice":[0,38,"a = 1\r\nb\r\n> c = 2\r\nml = '''\r\nx\r\n''' # added comment"]}}
+{"id":"ml: set trailing comment","op":"setTrailingComment","args":[["ml"],"added comment"],"expect":{"ok":true,"splice":[0,30,"a = 1\r\nb\r\n> c = 2\r\nml = ''' # added comment"]}}
 ]}

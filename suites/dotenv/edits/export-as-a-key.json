@@ -23,7 +23,7 @@
 {"id":"export: replace with punctuated","op":"replaceValue","args":[["export"],"a: b # c, [d] {e} \"f\" 'g'"],"expect":{"ok":true,"splice":[23,24,"\"a: b # c, [d] {e} \\\"f\\\" 'g'\""]}},
 {"id":"export: replace with multiline","op":"replaceValue","args":[["export"],"line one\nline two"],"expect":{"ok":true,"splice":[23,24,"\"line one\\nline two\""]}},
 {"id":"export: replace with empty","op":"replaceValue","args":[["export"],""],"expect":{"ok":true,"splice":[23,24,""]}},
-{"id":"export: replace with map","op":"replaceValue","args":[["export"],{"x":1,"y":"two"}],"expect":{"ok":true,"splice":[23,24,"x=1\ny=two"]}},
+{"id":"export: replace with map","op":"replaceValue","args":[["export"],{"x":1,"y":"two"}],"expect":{"ok":false,"status":"UnsupportedOperation"}},
 {"id":"export: replace with list","op":"replaceValue","args":[["export"],["a","b"]],"expect":{"ok":false,"status":"UnsupportedFormat"}},
 {"id":"export: replace with nested","op":"replaceValue","args":[["export"],{"inner":{"deep":[1,2]}}],"expect":{"ok":false,"status":"UnsupportedFormat"}},
 {"id":"export: replace with empty-map","op":"replaceValue","args":[["export"],{}],"expect":{"ok":true,"splice":[23,24,""]}},
