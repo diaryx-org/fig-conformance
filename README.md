@@ -1,15 +1,25 @@
 # fig-conformance
 
-Conformance suites for the languages fig reads and edits. A suite scores a
-language by name, through fig's language contract, and never imports an
-implementation, so the compiled Zig formats, the JS languages in
-`@diaryx/fig`, and a Lua or Rust helper are all held to the same cases.
-[fig's proposal](https://github.com/diaryx-org/fig/blob/main/docs/proposals/conformance-suite.md)
-says why.
+Conformance suites for configuration languages: JSON, JSONC, JSON5, YAML,
+TOML, ZON, INI, dotenv, `.properties`, plist, NestedText and figl. They
+score any parser or editor, written in any language. The runners never
+import an implementation; they reach it through an adapter: a command
+that speaks JSON lines, any toml-test decoder, or fig in-process
+([docs/adapters.md](docs/adapters.md)).
 
-There are two tiers: parse suites, which ask whether a language reads a
-document as its spec says, and edit suites, which ask what an edit makes of
-it.
+```sh
+node runner/parse.mjs --command "python3 examples/python-json/adapter.py" json
+node runner/parse.mjs --decoder "my-toml-test-decoder" --dialects toml toml
+node runner/edits.mjs --command "./my-editor-adapter" toml yaml
+```
+
+There are two tiers: parse suites, which ask whether an implementation
+reads a document as its spec says, and edit suites, which ask what an edit
+makes of it. The suites began as fig's
+([fig's proposal](https://github.com/diaryx-org/fig/blob/main/docs/proposals/conformance-suite.md)
+says why), and fig is still their reference: the edit expectations are
+fig's answers, and a few parse cases a spec leaves to the implementation
+expect fig's choice.
 
 ## Parse suites
 
@@ -43,12 +53,14 @@ are marked in the manifest as outside the contract, since the wire carries
 text, and are tallied apart.
 
 Each upstream has a script in `scripts/` that fetches it at a pinned
-commit and writes the corpus, without parsing anything with fig:
+commit and writes the corpus, without parsing anything with fig (or any
+other implementation):
 `vendor-json.mjs`, `vendor-json5.mjs`, `vendor-yaml.mjs`, `vendor-toml.mjs`,
 `vendor-nestedtext.mjs`, and `plist-oracles.mjs`, which asks `plutil` for
 the plist oracles. Pass a checkout to use it instead of cloning.
 
 ```sh
+node runner/parse.mjs --command "<cmd>"   # any implementation (docs/adapters.md); needs no fig
 npm run parse                       # the JS languages (@diaryx/fig/js/*), registered into a language-free fig
 npm run parse:native -- --check scores/compiled.json  # fig's Zig, a wasm module per language (@diaryx/fig-<name>, in ../fig/languages)
 npm run parse -- yaml toml          # some suites
@@ -59,15 +71,15 @@ npm run parse -- --check scores/js.json
 FIG_REFERENCE_WASM=/tmp/fig-ref/bin/fig.wasm npm run parse:compiled -- --check scores/compiled.json
 ```
 
-`scores/compiled.json` and `scores/js.json` are each implementation's
+`scores/compiled.json` and `scores/js.json` are fig's implementations'
 scores today. `--check` fails if any is now lower; raising one is an edit
 to the file in the change that earns it.
 
 ## Edit suites
 
 `suites/<language>/edits/` holds `sources/`, the documents, and one case
-file per source. A case is one `Editor` method applied to the source as
-written:
+file per source. A case is one edit op (docs/adapters.md lists them, as
+fig's `Editor` names them) applied to the source as written:
 
 ```json
 {"id": "server.port: replace with int", "op": "replaceValue", "args": [["server", "port"], 42],
@@ -89,26 +101,34 @@ prepended, deleted, moved and reordered. A new source brings its cases
 with it.
 
 The expectations are what fig's compiled formats answer. That makes the
-suite a parity check, and a fault both sides share passes it. So the
-recorder also checks one thing that needs no reference: a comment edit
-changes no value. A recorded answer that breaks it is marked `suspect`,
-and the runner says how many of its matches are to one.
+`exact` score a parity check with fig, and a fault both sides share passes
+it. So each suite has a second score, `faithful`, that needs no reference:
+the edit, read back through the implementation's own parser, made exactly
+the asked-for change and nothing else, or both refused
+(`lib/faithful.mjs`). A tool that writes in its own style can reach it.
+
+The recorder holds fig to the same: a recorded answer that is not
+faithful, or whose comment edit changes a value, is marked `suspect`, and
+the runner says how many of its matches are to one.
 
 ## Running
 
-Node 24 or later, and a fig checkout beside this one (or `FIG_PACKAGE`
-pointing at its `bindings/typescript`).
+Node 24 or later. To score fig, or to record, a fig checkout beside this
+one (or `FIG_PACKAGE` pointing at its `bindings/typescript`).
 
 ```sh
+node runner/edits.mjs --command "<cmd>"  # any implementation with an edit method (docs/adapters.md)
 npm run edits                      # every suite, against @diaryx/fig's JavaScript languages (js/)
 npm run edits:native               # against its native ones: fig's Zig, a wasm module per language
 npm run edits -- yaml toml         # some suites
 npm run edits -- --languages dir   # your own language modules, <dir>/<name>.js
-npm run edits -- --failures f.json # every mismatch, expected and got
+npm run edits -- --failures f.json # every case not exact: expected, got, and why it is not faithful
+npm run edits -- --exact-only      # skip the faithful score
 ```
 
-`languages.json` maps a suite to its dialect, the language module that
-serves it, and its file extension.
+`languages.json` maps a suite to its dialect, its file extension, what
+its values can hold for the faithful score (`scalars`, `empty`), and the
+fig language module that serves it.
 
 ## Recording
 

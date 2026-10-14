@@ -1,7 +1,7 @@
 {
   "name": "fig-conformance",
   "private": true,
-  "description": "Conformance suites for the languages fig reads and edits, scored through the language contract",
+  "description": "Conformance suites for configuration languages, for any parser or editor: JSON, YAML, TOML, JSON5, ZON, INI, dotenv, plist and more",
   "license": "MIT OR Apache-2.0",
   "type": "module",
   "engines": {

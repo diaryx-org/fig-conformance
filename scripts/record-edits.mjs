@@ -10,8 +10,12 @@ import { readdirSync, writeFileSync, readFileSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { fig, languages, suiteDir } from "../lib/fig.mjs";
 import { encode, decode, generate, run, same, suspect } from "../lib/edits.mjs";
+import { unfaithful } from "../lib/faithful.mjs";
+import { figImpl } from "../lib/impl/fig.mjs";
 
 const only = process.argv.slice(2);
+// The same fig, as an implementation, to read each answer back with.
+const impl = await figImpl({ register: false });
 const suspects = [];
 for (const lang of languages) {
   if (only.length && !only.includes(lang.suite)) continue;
@@ -30,14 +34,17 @@ for (const lang of languages) {
     // undefined, so the arguments go through it first.
     const generated = JSON.parse(JSON.stringify(generate(fig, source, format)));
     if (generated.length === 0) continue;
-    const recorded = generated.map((c) => {
+    const recorded = [];
+    for (const c of generated) {
       const expect = run(fig, source, format, c);
-      const why = suspect(fig, source, format, c, expect);
+      // An answer that does not read back as the edit asked for
+      // (lib/faithful.mjs) is suspect too.
+      const why = suspect(fig, source, format, c, expect) ?? await unfaithful(impl, lang, source, c, expect, expect);
       if (why) suspects.push(`${lang.suite}/${file}: ${c.id}: ${why}`);
       const stored = encode(source, expect);
       if (!same(decode(source, stored), expect)) throw new Error(`record-edits: ${file}: ${c.id}: the splice does not round-trip`);
-      return why ? { ...c, expect: stored, suspect: why } : { ...c, expect: stored };
-    });
+      recorded.push(why ? { ...c, expect: stored, suspect: why } : { ...c, expect: stored });
+    }
     // One case to a line, so a recording's diff is one line per moved case.
     writeFileSync(join(dir, `${file.slice(0, -(lang.ext.length + 1))}.json`),
       `{"source": ${JSON.stringify(file)}, "cases": [\n${recorded.map((c) => JSON.stringify(c)).join(",\n")}\n]}\n`);

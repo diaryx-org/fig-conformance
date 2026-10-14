@@ -4,11 +4,11 @@
   { "suite": "json5", "dialect": "json5", "module": "json5", "package": "json", "ext": "json5" },
   { "suite": "yaml", "dialect": "yaml", "module": "yaml", "ext": "yaml" },
   { "suite": "toml", "dialect": "toml", "module": "toml", "ext": "toml" },
-  { "suite": "zon", "dialect": "zon", "module": "zon", "ext": "zon" },
+  { "suite": "zon", "dialect": "zon", "module": "zon", "ext": "zon", "empty": "either" },
   { "suite": "figl", "dialect": "figl", "module": "figl", "ext": "figl" },
-  { "suite": "ini", "dialect": "ini", "module": "ini", "ext": "ini" },
-  { "suite": "dotenv", "dialect": "dotenv", "module": "dotenv", "ext": "env" },
-  { "suite": "properties", "dialect": "properties", "module": "properties", "ext": "properties" },
+  { "suite": "ini", "dialect": "ini", "module": "ini", "ext": "ini", "scalars": "strings" },
+  { "suite": "dotenv", "dialect": "dotenv", "module": "dotenv", "ext": "env", "scalars": "strings" },
+  { "suite": "properties", "dialect": "properties", "module": "properties", "ext": "properties", "scalars": "strings" },
   { "suite": "plist", "dialect": "plist", "module": "plist", "ext": "plist" },
-  { "suite": "nestedtext", "dialect": "nestedtext", "module": "nestedtext", "ext": "nt" }
+  { "suite": "nestedtext", "dialect": "nestedtext", "module": "nestedtext", "ext": "nt", "scalars": "strings" }
 ]

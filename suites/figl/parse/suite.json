@@ -11,7 +11,7 @@
       "corpus": "valid",
       "ext": "figl",
       "expect": "tagged",
-      "numbers": "fig"
+      "numbers": "unbounded"
     },
     {
       "name": "invalid",
