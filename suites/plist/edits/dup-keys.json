@@ -12,7 +12,7 @@
 {"id":"root: set new key","op":"setValue","args":[["set_key"],"set"],"expect":{"ok":false,"status":"InvalidArgument"}},
 {"id":"root: set existing key","op":"setValue","args":[["a"],"set"],"expect":{"ok":true,"splice":[116,117,"set"]}},
 {"id":"root: add dangling comment","op":"addDanglingComment","args":[[],"added comment"],"expect":{"ok":false,"status":"UnsupportedFormat"}},
-{"id":"a: rename","op":"renameKey","args":[["a"],"renamed"],"expect":{"ok":true,"splice":[71,72,"renamed"]}},
+{"id":"a: rename","op":"renameKey","args":[["a"],"renamed"],"expect":{"ok":true,"splice":[71,72,"renamed"]},"suspect":"$: want 1 entries, got 2"},
 {"id":"a: delete","op":"deleteKey","args":[["a"]],"expect":{"ok":false,"status":"ParseError"}},
 {"id":"a: replace with int","op":"replaceValue","args":[["a"],42],"expect":{"ok":true,"splice":[109,125,"integer>42</integer"]}},
 {"id":"a: replace with negative","op":"replaceValue","args":[["a"],-7],"expect":{"ok":true,"splice":[109,125,"integer>-7</integer"]}},

@@ -10,7 +10,7 @@
 {"id":"root: insert empty-map","op":"insertValue","args":[[],"added_empty-map",{}],"expect":{"ok":true,"splice":[0,7,"a: 1\nadded_empty-map: {}"]}},
 {"id":"root: insert empty-list","op":"insertValue","args":[[],"added_empty-list",[]],"expect":{"ok":true,"splice":[0,7,"a: 1\nadded_empty-list: []"]}},
 {"id":"root: set new key","op":"setValue","args":[["set_key"],"set"],"expect":{"ok":true,"splice":[0,7,"a: 1\nset_key: set"]}},
-{"id":"root: set existing key","op":"setValue","args":[["a"],"set"],"expect":{"ok":true,"splice":[0,7,"a: 1\na: set"]}},
+{"id":"root: set existing key","op":"setValue","args":[["a"],"set"],"expect":{"ok":true,"splice":[0,7,"a: 1\na: set"]},"suspect":"$: want 1 entries, got 2"},
 {"id":"root: add dangling comment","op":"addDanglingComment","args":[[],"added comment"],"expect":{"ok":true,"splice":[0,7,"a: 1\n# added comment"]}},
 {"id":"a: rename","op":"renameKey","args":[["a"],"renamed"],"expect":{"ok":false,"status":"NotFound"}},
 {"id":"a: delete","op":"deleteKey","args":[["a"]],"expect":{"ok":false,"status":"NotFound"}},
